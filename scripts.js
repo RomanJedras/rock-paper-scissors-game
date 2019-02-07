@@ -4,7 +4,7 @@ var output = document.getElementById('output');
 var rock_button = document.getElementById('js-playerPick_rock');
 var paper_button = document.getElementById('js-playerPick_paper');
 var scissors_button = document.getElementById('js-playerPick_scissors');
-
+var newGameButton = document.getElementById('newgameButton');
 
 /*Add elment result */
 
@@ -31,6 +31,7 @@ var player_name = '',
 var computer_score = 0;
 /*Game not yet started*/
 var gameState = 'notStarted';
+
 
 
 
@@ -85,8 +86,18 @@ var checkRoundWinner = function(playerPick, computerPick) {
     if (winnerIs == 'player') {
        return winnerIs;
     }
+}
 
-
+var setGameElements = function() {
+    if (gameState == 'started') {
+        pickElem.style.display = 'block';
+        resultsElem.style.display = 'block';
+    } else if (gameState == 'ended') {
+        newGameButton.innerHTML = 'One again';
+    } else {
+        pickElem.style.display = 'none';
+        resultsElem.style.display = 'none';
+    }
 }
 
 
