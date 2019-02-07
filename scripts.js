@@ -6,12 +6,35 @@ var paper_button = document.getElementById('js-playerPick_paper');
 var scissors_button = document.getElementById('js-playerPick_scissors');
 
 
+/*Add elment result */
 
-/Add element Choose && Result/
+var pickElem = document.getElementById('playerPickElement'),
+    resultsElem = document.getElementById('results');
+
+
+/*Add elment player Name && points */
+var playerPointsElem = document.getElementById('playerPoints'),
+    playerNameElem = document.getElementById('playerName'),
+    computerPointsElem = document.getElementById('computerPoints');
+
+
+
+/*Add element Choose && Result*/
 var playerPickElem = document.getElementById('playerPick'),
     computerPickElem = document.getElementById('computerPick'),
     playerResultElem = document.getElementById('playerResult'),
     computerResultElem = document.getElementById('computerResult');
+
+
+var player_name = '',
+        player_score = 0;
+var computer_score = 0;
+/*Game not yet started*/
+var gameState = 'notStarted';
+
+
+
+
 
 var playerMove = function(playerPick) {
     output.innerHTML = playerPick;
