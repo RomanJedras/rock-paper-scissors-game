@@ -17,3 +17,6 @@ gen
 .idea/sonarlint/
 .idea/workspace.xml
 
+
+.sass-cache/
+
