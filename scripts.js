@@ -7,6 +7,11 @@ var scissors_button = document.getElementById('js-playerPick_scissors');
 
 
 
+/Add element Choose && Result/
+var playerPickElem = document.getElementById('playerPick'),
+    computerPickElem = document.getElementById('computerPick'),
+    playerResultElem = document.getElementById('playerResult'),
+    computerResultElem = document.getElementById('computerResult');
 
 var playerMove = function(playerPick) {
     output.innerHTML = playerPick;
