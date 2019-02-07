@@ -1,0 +1,13 @@
+
+$bodyColor: lightgray;
+$marginTop: 20px;
+
+
+body {
+  background-color: $bodyColor;
+}
+
+.game-element-bt,
+.css-playerPickElement {
+  margin-top: $marginTop;
+}
