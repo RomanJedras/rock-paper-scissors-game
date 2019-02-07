@@ -10,19 +10,18 @@ var scissors_button = document.getElementById('js-playerPick_scissors');
 
 var playerMove = function(playerPick) {
     output.innerHTML = playerPick;
-    var computerPlayer;
+    var computerPlayer, messages;
     computerPlayer = getComputerPick();
 
    var gameWinner  = checkRoundWinner(playerPick, computerPlayer);
    if (gameWinner != 'noone' && gameWinner == 'computer') {
-       output.innerHTML = 'You Won '+ gameWinner + ' played: ' + computerPlayer + ' and player played :' +playerPick;
+       messages = 'You Won '+ gameWinner + ' played: ' + computerPlayer + ' and player played :' +playerPick;
    } else if (gameWinner != 'noone' && gameWinner == 'player') {
-       output.innerHTML = 'You Won '+ gameWinner + ' played: ' + playerPick + ' and computer played :' + computerPlayer;
+       messages = 'You Won '+ gameWinner + ' played: ' + playerPick + ' and computer played :' + computerPlayer;
    }else {
-       output.innerHTML = 'Nobody Winner !!';
+       messages = 'Nobody Winner !!';
    }
-
-
+    return output.innerHTML = messages;
 }
 
 var random = function() {
