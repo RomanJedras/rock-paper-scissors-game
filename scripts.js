@@ -24,6 +24,8 @@ var playerPickElem = document.getElementById('playerPick'),
     computerPickElem = document.getElementById('computerPick'),
     playerResultElem = document.getElementById('playerResult'),
     computerResultElem = document.getElementById('computerResult');
+    pickElem.style.display = 'block';
+    resultsElem.style.display = 'none';
 
 
 var player_name = '',
@@ -33,25 +35,44 @@ var computer_score = 0;
 var gameState = 'notStarted';
 
 
+var newPlay = function(playerPick) {
 
+    if (playerPick != '') {
+        playerMove(playerPick);
+    }else {
+        return '';
+    }
+
+    setGameElements(playerPick);
+
+}
 
 
 
 var playerMove = function(playerPick) {
-    output.innerHTML = playerPick;
-    var computerPlayer, messages;
-    computerPlayer = getComputerPick();
 
-   var gameWinner  = checkRoundWinner(playerPick, computerPlayer);
-   if (gameWinner != 'noone' && gameWinner == 'computer') {
-       messages = 'You Won '+ gameWinner + ' played: ' + computerPlayer + ' and player played :' +playerPick;
-   } else if (gameWinner != 'noone' && gameWinner == 'player') {
-       messages = 'You Won '+ gameWinner + ' played: ' + playerPick + ' and computer played :' + computerPlayer;
-   }else {
-       messages = 'Nobody Winner !!';
-   }
-    return output.innerHTML = messages;
-}
+    player_name = prompt('Player, please pass your name', 'Player Name');
+
+     if (player_name) {
+         var gameWinner  = checkRoundWinner(playerPick, computerPlayer);
+         var computerPlayer, messages;
+         computerPlayer = getComputerPick();
+
+         if (gameWinner != 'noone' && gameWinner == 'computer') {
+             messages = 'You Won '+ gameWinner + ' played: ' + computerPlayer + ' and player played :' +playerPick;
+         } else if (gameWinner != 'noone' && gameWinner == 'player') {
+             messages = 'You Won '+ player_name  + ' played: ' + playerPick + ' and computer played :' + computerPlayer;
+         }else {
+             messages = 'Nobody Winner !!';
+         }
+         return output.innerHTML = messages;
+        }
+    }
+
+
+
+
+
 
 var random = function() {
     return Math.floor(Math.random()*3);
@@ -95,22 +116,22 @@ var setGameElements = function() {
     } else if (gameState == 'ended') {
         newGameButton.innerHTML = 'One again';
     } else {
-        pickElem.style.display = 'none';
+        pickElem.style.display = 'block';
         resultsElem.style.display = 'none';
     }
 }
 
 
-rock_button.addEventListener('click', function () {
-    playerMove(this.name)
+rock_button.addEventListener('click', function(){
+    newPlay(this.name);
 });
 
-paper_button.addEventListener('click', function () {
-    playerMove(this.name)
+paper_button.addEventListener('click',function(){
+    newPlay(this.name)
 });
 
-scissors_button.addEventListener('click', function () {
-    playerMove(this.name)
+scissors_button.addEventListener('click',function(){
+    newPlay(this.name);
 });
 
 
