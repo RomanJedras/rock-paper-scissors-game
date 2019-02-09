@@ -7,6 +7,11 @@ body {
   background-color: $bodyColor;
 }
 
+#js-newGameElement {
+  margin-top: $marginTop;
+}
+
+
 .game-element-bt,
 .css-playerPickElement {
   margin-top: $marginTop;
